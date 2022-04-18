@@ -1,0 +1,25 @@
+{
+  "name": "gcp-secret-fetcher",
+  "version": "1.0.0",
+  "description": "Because using secrets with GAE is a PITA. This allows you to keep secrets in Google Secret Manager in a format similar to environment variables/heroku/dotenv etc... and use them in production with GAE.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "David Guttman <david@guttman.io> (http://davidguttman.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/secret-manager": "^3.12.0",
+    "dotenv": "^4.0.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidguttman/gcp-secret-fetcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/davidguttman/gcp-secret-fetcher/issues"
+  },
+  "homepage": "https://github.com/davidguttman/gcp-secret-fetcher#readme"
+}
