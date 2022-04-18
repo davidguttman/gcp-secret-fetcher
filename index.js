@@ -1,15 +1,15 @@
 var dotenv = require('dotenv')
 var { execSync } = require('child_process')
 
-module.exports = function ({ projectId, secretId, mergeEnv }) {
-  var remoteEnv = process.env.NODE_ENV !== 'production'
-    ? {}
-    : dotenv.parse(
-      execSync(`node ${__dirname}/fetch.js ${projectId} ${secretId}`)
-    )
+module.exports = function ({ projectId, secretId, mergeEnv, force }) {
+  if (process.env.NODE_ENV !== 'production' && !force) return {}
 
-    if (mergeEnv) merge(remoteEnv)
-    return remoteEnv
+  var remoteEnv = dotenv.parse(
+    execSync(`node ${__dirname}/fetch.js ${projectId} ${secretId}`)
+  )
+
+  if (mergeEnv) merge(remoteEnv)
+  return remoteEnv
 }
 
 function merge (remoteEnv) {
