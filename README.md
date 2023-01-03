@@ -20,6 +20,14 @@ module.exports = {
   ...
 ```
 
+And in GCP you have a secret with the ID `my-secret-id` with the value:
+
+```
+REDIS_HOST=redis.com
+REDIS_PORT=1234
+REDIS_PASSWORD=swordfish
+```
+
 You'd just change it to:
 
 ```
@@ -27,7 +35,7 @@ require('dotenv').config()
 
 require('gcp-secret-fetcher')({
   projectId: 'your-gcp-project-id',
-  secretId: 'the-id-of-the-secret',
+  secretId: 'my-secret-id',
   mergeEnv: true // will merge the fetched variables into process.env for you
 })
 
